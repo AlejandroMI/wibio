@@ -2,12 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+    h1 {
+        @apply text-2xl font-bold tracking-tight;
+    }
+    h2 {
+        @apply text-xl;
+    }
+    .btn {
+        @apply inline-block px-5 py-3 rounded-xl focus:outline-none focus:ring focus:ring-offset-2 focus:ring-primary-light capitalize transform transition;
+    }
+    .btn-primary {
+        @apply shadow-md bg-gray-900  hover:bg-gray-800 hover:shadow-lg active:bg-gray-900 active:shadow-sm text-white font-bold;
+    }
+    .btn-tertiary {
+        @apply font-light hover:text-primary text-gray-900;
+    }
 }
-
-*/
