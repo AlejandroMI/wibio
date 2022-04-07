@@ -10,4 +10,11 @@ RSpec.describe User, type: :model do
     user = build(:user)
     expect(user).to be_valid
   end
+
+  it 'shouldnt allow a duplicate alias' do
+    user = create(:user, nickname: 'ted', email: 'ted1@test.com')
+    expect(user).to be_valid
+    user = build(:user, email: 'tes2@test.com', nickname: 'ted')
+    expect(user).to_not be_valid
+  end
 end
