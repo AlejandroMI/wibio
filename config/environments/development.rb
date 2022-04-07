@@ -59,6 +59,12 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # Only generate sensible tests
+  config.generators do |g|
+    g.view_specs false
+    g.helper_specs false
+  end
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

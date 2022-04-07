@@ -36,3 +36,10 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Because Paul uses vim
+*.swp
+
+# Idea files
+*.iml
+.idea/wibio.iml
