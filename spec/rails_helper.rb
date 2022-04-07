@@ -20,6 +20,8 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  config.include FactoryBot::Syntax::Methods
+
   # Wrap each test in a transaction
   config.use_transactional_fixtures = true
 
