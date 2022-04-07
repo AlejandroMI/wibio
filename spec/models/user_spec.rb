@@ -17,4 +17,9 @@ RSpec.describe User, type: :model do
     user = build(:user, email: 'tes2@test.com', nickname: 'ted')
     expect(user).to_not be_valid
   end
+
+  it 'should always require a nickname' do
+    user = build(:user, nickname: nil)
+    expect(user).to_not be_valid
+  end
 end
