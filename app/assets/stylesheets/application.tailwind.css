@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 @layer components {
+    /* Headers */
     h1 {
         @apply text-2xl font-bold tracking-tight;
     }
     h2 {
         @apply text-xl;
     }
+
+    /* Buttons */
     .btn {
         @apply inline-block px-5 py-3 rounded-xl focus:outline-none focus:ring focus:ring-offset-2 focus:ring-primary-light capitalize transform transition;
     }
@@ -17,5 +20,13 @@
     }
     .btn-tertiary {
         @apply font-light hover:text-primary text-gray-900;
+    }
+
+    /* Forms */
+    .checkbox {
+        @apply h-4 w-4 text-primary focus:ring-primary-light border-gray-300 rounded
+    }
+    .input {
+        @apply appearance-none rounded-none relative block w-full px-5 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm
     }
 }

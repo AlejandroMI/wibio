@@ -15,18 +15,18 @@
       <div class="rounded-lg shadow-sm -space-y-px">
         <div class="field">
           <%= f.label :email, class: "sr-only" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: "appearance-none rounded-none relative block w-full px-5 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-lg focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: "input rounded-none rounded-t-lg" %>
         </div>
         <div class="field">
           <%= f.label :password, class: "sr-only" %>
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "appearance-none rounded-none relative block w-full px-5 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-lg focus:outline-none  focus:ring-primary focus:border-primary focus:z-10 sm:text-sm" %>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "input rounded-none rounded-b-lg" %>
         </div>
       </div>
 
-      <div class="mt-2 flex items-center justify-between">
+      <div class="mt-4 flex items-center justify-between">
         <% if devise_mapping.rememberable? %>
           <div class="flex items-center">
-            <%= f.check_box :remember_me, class: "h-4 w-4 text-primary focus:ring-primary-light border-gray-300 rounded" %>
+            <%= f.check_box :remember_me, class: "checkbox" %>
             <%= f.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
           </div>
         <% end %>
@@ -34,7 +34,7 @@
         <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-sm font-medium text-primary hover:text-primary-light" %>
       </div>
 
-      <div class="mt-2 actions">
+      <div class="mt-4 actions">
         <%= f.submit "Log in", class:"btn btn-primary w-full" %>
       </div>
 
