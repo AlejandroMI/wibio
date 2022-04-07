@@ -39,3 +39,6 @@
 
 # Because Paul uses vim
 *.swp
+
+# Idea files
+*.iml

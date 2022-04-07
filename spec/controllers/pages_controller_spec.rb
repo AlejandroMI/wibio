@@ -4,9 +4,4 @@ RSpec.describe PagesController, type: :controller do
     get :home
     expect(response).to be_successful
   end
-
-  it 'should get the welcome screen' do
-    get :welcome
-    expect(response).to be_successful
-  end
 end
