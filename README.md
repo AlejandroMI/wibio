@@ -1,24 +1,28 @@
-# README
+# Wibio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Wibio!
 
-Things you may want to cover:
+## Before you start
 
-* Ruby version
+> 💡 Please add any other steps or info that you consider is missing
 
-* System dependencies
+Make sure that your system has the proper prerequisites installed. You can use something like *brew*.
+These include:
 
-* Configuration
+- Ruby (3.1.1)
+- SQLite3
+- Node.js (should be greater than 8.16.0.)
+- Yarn
 
-* Database creation
+Now you can head to the project folder and run:
 
-* Database initialization
+`bundle install`
 
-* How to run the test suite
+### Tests
+We use RSpec for testing, so before start building make sure all tests are passing with `rake spec`
 
-* Services (job queues, cache servers, search engines, etc.)
+### Tailwind
+We use tailwind for our styles. You want to run Tailwind in watch mode, so changes are automatically reflected in the generated CSS output. 
+You can do this either by running rails `tailwindcss:watch` as a separate process, or by running `./bin/dev` so it starts both the Tailwind watch process and the rails server in development mode.
 
-* Deployment instructions
-
-* ...
+More to come...
