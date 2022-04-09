@@ -14,7 +14,6 @@
 
   <body>
     <main class="relative overflow-hidden max-w-7xl mx-auto">
-      <!-- alerts and notices -->
       <% flash.each do |type, message| %>
         <%= render(AlertComponent.new(type: type, message: message)) %>
       <% end %>
