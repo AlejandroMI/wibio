@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true, uniqueness: { case_sensitive: false }
+  validates_presence_of :nickname
+  validates_uniqueness_of :nickname, case_sensitive: false
   validates_format_of :nickname, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
   attr_writer :login
