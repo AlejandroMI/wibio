@@ -17,6 +17,12 @@ class TurboFailureApp < Devise::FailureApp
   end
 end
 
+# Add navbar for a user editing its profile
+Rails.application.config.to_prepare do
+  Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "navbar" : "application" }
+  # You can add more custom layouts here for other controllers
+end
+
 
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
