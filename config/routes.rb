@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   # Fix error when deleting user account
   Rails.application.routes.draw do
     devise_scope :user do
-      # Redirests signing out users back to sign-in
+      # Redirects signing out users back to sign-in
       get "users", to: "devise/sessions#new"
     end
-    devise_for :users
+    devise_for :users, :controllers => { :registrations => :registrations }
   end
 
   authenticated :user do
