@@ -25,6 +25,21 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
+  it 'should always require a full name' do
+    user = build(:user, full_name: nil)
+    expect(user).to_not be_valid
+  end
+
+  it 'should not allow names with more than 70 chars' do
+    user = build(:user, full_name: 'a' * 80)
+    expect(user).to_not be_valid
+  end
+
+  it 'should not allow abouts with more than 70 chars' do
+    user = build(:user, about: 'a' * 145)
+    expect(user).to_not be_valid
+  end
+
   it 'shouldnt allow a nickname that looks like an email or contains other special chars' do
     user = build(:user, nickname: 'ender@captain', email: 'ender@test.com')
     expect(user).to_not be_valid

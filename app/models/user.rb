@@ -1,11 +1,16 @@
 class User < ApplicationRecord
   has_one :bio
+  has_one_attached :avatar
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates_presence_of :nickname
+  # Validations
+  validates_presence_of :nickname, :full_name
+  validates_length_of :full_name, maximum: 70
+  validates_length_of :about, maximum: 140
   validates_uniqueness_of :nickname, case_sensitive: false
   validates_format_of :nickname, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
