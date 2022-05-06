@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates_length_of :about, maximum: 140
   validates_uniqueness_of :nickname, case_sensitive: false
   validates_format_of :nickname, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  validates :avatar, size: { less_than_or_equal_to: 5.megabytes, message: "file too large. Max size is 5 MB."}, content_type: ['image/jpeg', 'image/gif', 'image/png']
 
   attr_writer :login
 

@@ -24,8 +24,8 @@
               <div class="col-span-3 sm:col-span-2">
                   <span class="label">Photo</span>
                   <div class="mt-1 flex gap-2 items-center relative">
-                    <span class="inline-block shrink-0 h-24 w-24 rounded-full overflow-hidden bg-gray-100 border-2 border-gray-200 z-10">
-                      <% if @user.avatar.attached? %>
+                    <span class="inline-block shadow-sm shrink-0 h-24 w-24 rounded-full overflow-hidden bg-gray-100 border-2 border-gray-200 z-10">
+                      <% if @user.avatar.attached? && !@user.errors.map(&:attribute).include?(:avatar) %>
                         <%= image_tag @user.avatar.variant(resize_to_limit: [240, 240]), class: "h-full w-full" %>
                       <% else %>
                         <svg class="h-full w-full text-gray-300 bg-white" fill="currentColor" viewBox="0 0 24 24">

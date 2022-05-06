@@ -32,6 +32,9 @@
 en:
   hello: "Hello world"
   activerecord:
+    attributes:
+      user:
+        avatar: "Profile photo"
     errors:
       models:
         user:
@@ -39,4 +42,6 @@ en:
             nickname:
               taken: "is taken already"
               invalid: "can only contain alphanumeric characters, underscores or periods"
+            avatar:
+              content_type_invalid: "must have one of the following extensions: .png, .jpeg or .gif"
 
