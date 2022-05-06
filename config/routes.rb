@@ -4,13 +4,11 @@ Rails.application.routes.draw do
   resources :users, only: [:update]
 
   # Fix error when deleting user account
-  Rails.application.routes.draw do
-    devise_scope :user do
-      # Redirects signing out users back to sign-in
-      get "users", to: "devise/sessions#new"
-    end
-    devise_for :users, :controllers => { :registrations => :registrations }
+  devise_scope :user do
+    # Redirects signing out users back to sign-in
+    get "users", to: "devise/sessions#new"
   end
+  devise_for :users, :controllers => { :registrations => :registrations }
 
   authenticated :user do
     root 'bio#edit', as: :authenticated_root
