@@ -5,7 +5,8 @@ module.exports = {
   content: [
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
+    './app/components/**/*.{erb,haml,html,slim}'
   ],
   theme: {
     extend: {
@@ -19,9 +20,11 @@ module.exports = {
           dark: "#33468C",
         },
         secondary: {
+          lighter: "#FFE8E3",
           light: "#FFCFC5",
           DEFAULT: "#FFA08B",
-          dark: "#BF7868"
+          dark: "#BF7868",
+          darker: "#944B3C"
         },
         tertiary: {
           light: "#FFE7A8",

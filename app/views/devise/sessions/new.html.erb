@@ -1,26 +1,45 @@
-<h2>Log in</h2>
+<div class="min-h-screen flex items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div>
+      <%= link_to root_path do %>
+        <%= image_tag "logos/wibio.svg", class: "mx-auto h-7 w-auto", alt: "Wibio logo"  %>
+      <% end %>
+      <h2 class="mt-6 text-center">Sign in to your account</h2>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Or <%= link_to "get started for free.", new_registration_path(resource_name), class: "font-medium text-primary hover:text-primary-light" %><br />
+      </p>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "mt-8 space-y-6") do |f| %>
+      <div class="rounded-lg shadow-sm -space-y-px">
+        <div class="field">
+          <%= f.label :login, class: "sr-only" %>
+          <%= f.text_field :login, autofocus: true, autocomplete: "email", placeholder: "Email address or nickname", class: "input rounded-none rounded-t-lg" %>
+        </div>
+        <div class="field">
+          <%= f.label :password, class: "sr-only" %>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "input rounded-none rounded-b-lg" %>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-center justify-between">
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-center">
+            <%= f.check_box :remember_me, class: "checkbox" %>
+            <%= f.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
+          </div>
+        <% end %>
+
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-sm font-medium text-primary hover:text-primary-light" %>
+      </div>
+
+      <div class="mt-4 actions">
+        <%= f.submit "Log in", class:"btn btn-cta w-full" %>
+      </div>
+
+    <% end %>
+
+
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

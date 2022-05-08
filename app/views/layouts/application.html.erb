@@ -14,8 +14,10 @@
 
   <body>
     <main class="relative overflow-hidden max-w-7xl mx-auto">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% flash.each do |type, message| %>
+        <%= render FlashComponent.new(type: type, message: message) %>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>
