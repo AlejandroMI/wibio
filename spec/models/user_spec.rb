@@ -53,4 +53,9 @@ RSpec.describe User, type: :model do
     user = build(:user, nickname: 'e.c.123', email: 'ender@test.com')
     expect(user).to be_valid
   end
+
+  it 'should return an integer when asking for default' do
+    user = create(:user)
+    expect(user.default_avatar_number).to be_between(1,15)
+  end
 end

@@ -16,7 +16,7 @@
 
     /* Buttons */
     .btn {
-        @apply whitespace-nowrap inline-block px-4 py-2 font-medium rounded-xl focus:outline-none focus:ring focus:ring-offset-2 focus:ring-primary-light capitalize transform transition;
+        @apply whitespace-nowrap inline-block px-4 py-2 font-medium rounded-xl focus:outline-none focus:ring focus:ring-offset-2 focus:ring-primary-light text-center capitalize transform transition;
     }
     .btn-sm {
         @apply text-sm

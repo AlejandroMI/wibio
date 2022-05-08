@@ -32,4 +32,10 @@ class User < ApplicationRecord
     end
   end
 
+  # Matches id to avatar default image
+  # @return [Integer] that corresponds to an image in the avatars folder
+  def default_avatar_number
+    (1..15).to_a.rotate(id).last
+  end
+
 end

@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   get 'bio/edit'
 
-  resources :users, only: [:update]
-
-  # Fix error when deleting user account
   devise_scope :user do
-    # Redirects signing out users back to sign-in
+    # Redirects signing out users back to home, fixing error when deleting user account
     get "users", to: "devise/sessions#new"
   end
-  devise_for :users, :controllers => { :registrations => :registrations }
+  # Set devise for users, customizing through registration controller and with prefix to avoid collisions with user paths
+  devise_for :users, :controllers => { :registrations => :registrations }, :path_prefix => 'd'
+
+  resources :users, only: [:update]
+  get "welcome", to: "users#welcome"
+  post "finish_welcome", to: "users#finish_welcome"
 
   authenticated :user do
     root 'bio#edit', as: :authenticated_root
