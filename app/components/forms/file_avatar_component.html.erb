@@ -7,7 +7,7 @@
       <%= image_tag "avatars/#{@user.default_avatar_number}.png", class: "mx-auto h-full", data: {forms__file_avatar_target: "image" } %>
     <% end %>
 
-    <span tabindex="0"
+    <label tabindex="0" for="user_avatar"
           class="cursor-pointer h-full w-full rounded-full hover:backdrop-blur focus:backdrop-blur opacity-0 hover:opacity-100 focus:opacity-100 focus:outline-none transition absolute top-0 hover:bg-gradient-to-t focus:bg-gradient-to-t from-gray-100"
           data-action="keypress->forms--file-avatar#browse click->forms--file-avatar#browse"
           data-forms--file-avatar-target="label">
@@ -16,7 +16,7 @@
         <span class="animate-bounce"><%= heroicon "upload" %></span>
         <span class="text-center text-sm font-medium select-none">Upload</span>
       </span>
-    </span>
+    </label>
 
   </span>
   <%= @form.file_field :avatar, class: "hidden", accept: 'image/png,image/gif,image/jpeg', data: {forms__file_avatar_target: "input", action: "change->forms--file-avatar#selected"} %>
