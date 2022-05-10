@@ -13,6 +13,7 @@ These include:
 - SQLite3
 - Node.js (should be greater than 8.16.0.)
 - Yarn
+- [libvips](https://formulae.brew.sh/formula/vips)
 
 Now you can head to the project folder and run:
 
