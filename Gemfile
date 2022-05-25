@@ -59,6 +59,9 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem 'active_storage_validations'
 
+# Menus and navigation
+gem "simple-navigation"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'database_cleaner'
