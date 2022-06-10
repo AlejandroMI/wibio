@@ -1,6 +1,8 @@
-<nav class="bg-white sticky top-0 z-50 border-b border-gray-200">
+<nav class="bg-white sticky top-0 z-50 border-b border-gray-200" data-controller="navigation">
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
         <div class="flex items-center">
           <div class="flex-shrink-0 hidden md:block">
             <%= link_to root_path do %>
@@ -13,6 +15,7 @@
             <% end %>
           </div>
         </div>
+        <!-- Menu and links -->
         <div class="flex items-center">
           <a href="https://google.com" target="_blank" class="hidden md:flex btn btn-primary btn-sm items-center gap-x-1 px-2">
             <%= heroicon 'external-link', variant: :solid %>
@@ -52,24 +55,14 @@
         </div>
           <div class="-mr-2 flex md:hidden">
           <!-- Mobile menu button -->
-          <button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <button type="button" data-action="click->navigation#toggle" class="bg-white inline-flex items-center justify-center rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
-            <!--
-              Heroicon name: outline/menu
-
-              Menu open: "hidden", Menu closed: "block"
-            -->
-            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <!--
-              Heroicon name: outline/x
-
-              Menu open: "block", Menu closed: "hidden"
-            -->
-            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <span class="p-2" data-navigation-target="open">
+              <%= heroicon 'menu' %>
+            </span>
+            <span class="hidden p-2" data-navigation-target="close">
+              <%= heroicon 'x' %>
+            </span>
           </button>
         </div>
         </div>
@@ -77,17 +70,19 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="md:hidden" id="mobile-menu">
+    <div class="hidden md:hidden" id="mobile-menu" data-navigation-target="mobileMenu">
       <div class="pt-4 pb-3">
-        <div class="flex items-center px-5">
-          <div class="flex-shrink-0">
-            <%= render AvatarComponent.new(user: @user, size: 10) %>
+        <div class="flex items-center justify-between px-5 flex-wrap gap-2">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <%= render AvatarComponent.new(user: @user, size: 10) %>
+            </div>
+            <div class="ml-3">
+              <div class="text-base font-medium leading-none mb-1"><%= @user.full_name %></div>
+              <div class="text-sm font-medium leading-none text-gray-400"> @<%= @user.nickname %></div>
+            </div>
           </div>
-          <div class="ml-3">
-            <div class="text-base font-medium leading-none mb-1"><%= @user.full_name %></div>
-            <div class="text-sm font-medium leading-none text-gray-400"> @<%= @user.nickname %></div>
-          </div>
-          <a href="https://google.com" target="_blank" class="flex ml-auto btn btn-primary flex items-center justify-center gap-x-1">
+          <a href="https://google.com" target="_blank" class="flex btn btn-primary flex items-center justify-center gap-x-1">
             <%= heroicon 'external-link', variant: :solid %>
             <span> Your wibio </span>
           </a>
@@ -104,4 +99,5 @@
         </div>
       </div>
     </div>
+
   </nav>
