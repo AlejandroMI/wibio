@@ -55,12 +55,15 @@
         </div>
           <div class="-mr-2 flex md:hidden">
           <!-- Mobile menu button -->
-          <button type="button" data-action="click->navigation#toggle" class="bg-white inline-flex items-center justify-center rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <span class="p-2" data-navigation-target="open">
+          <button type="button" data-action="click->navigation#open keydown->navigation#open" data-navigation-target="open" class="bg-white inline-flex items-center justify-center rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open menu</span>
+            <span class="p-2">
               <%= heroicon 'menu' %>
             </span>
-            <span class="hidden p-2" data-navigation-target="close">
+          </button>
+          <button type="button" data-action="click->navigation#close keydown->navigation#close" data-navigation-target="close" class="hidden bg-white inline-flex items-center justify-center rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Close menu</span>
+            <span class="p-2" >
               <%= heroicon 'x' %>
             </span>
           </button>
