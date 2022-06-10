@@ -4,7 +4,6 @@ export default class extends Controller {
     static targets = [ "mobileMenu", "open", "close" ]
 
     toggle(event) {
-        debugger
         if (event.target == this.openTarget || event.target.closest('span') == this.openTarget) {
             this.open(event)
         } else {
