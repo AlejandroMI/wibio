@@ -1,4 +1,4 @@
-<span class="relative inline-block shadow-sm rounded-full overflow-hidden bg-gray-100 <%= size_classes %>">
+<span style="height: <%= size %>px; width: <%= size %>px" class="relative inline-block shadow-sm rounded-full overflow-hidden bg-gray-100">
   <% if @user.avatar.attached? && !@user.errors.map(&:attribute).include?(:avatar) %>
     <%= image_tag @user.avatar.variant(resize_to_limit: [resize_value, resize_value]), class: "h-full w-full object-cover", alt: "Profile picture" %>
   <% else %>

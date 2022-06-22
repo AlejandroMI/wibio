@@ -11,7 +11,7 @@ RSpec.describe AvatarComponent, type: :component do
       expect{ @html }.not_to raise_error
     end
     it 'should render right class size' do
-      expect(@html).to include("h-10 w-10")
+      expect(@html).to include("height: 40px; width: 40px")
     end
     it 'renders a default image from the avatars folder' do
       expect(@html).to include('src="/assets/avatars/')
@@ -27,8 +27,8 @@ RSpec.describe AvatarComponent, type: :component do
     it "renders without raising an error" do
       expect{ @html }.not_to raise_error
     end
-    it 'should render right class size' do
-      expect(@html).to include("h-24 w-24")
+    it 'should render right size' do
+      expect(@html).to include("height: 96px; width: 96px")
     end
     it 'renders a custom image' do
       expect(@html).to include('/monalisa.jpeg')

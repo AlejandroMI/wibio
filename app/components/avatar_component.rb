@@ -11,8 +11,8 @@ class AvatarComponent < ViewComponent::Base
 
   private
 
-  def size_classes
-    "h-#{@size} w-#{@size}"
+  def size
+    @size * 4
   end
 
   def resize_value
