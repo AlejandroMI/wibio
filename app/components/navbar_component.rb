@@ -7,4 +7,10 @@ class NavbarComponent < ViewComponent::Base
     @user = user
     @navigation = navigation
   end
+
+  private
+
+  def primary_navigation
+    @navigation.first[:items]
+  end
 end

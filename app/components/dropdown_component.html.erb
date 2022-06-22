@@ -1,29 +1,30 @@
 <div data-controller="dropdown" class="relative">
-  <button type="button" data-action="dropdown#toggle click@window->dropdown#hide">
+  <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center" aria-haspopup="true">
+    <span class="sr-only">Open menu</span>
     <%= content %>
   </button>
 
-  <div
+  <ul
     data-dropdown-target="menu"
-    class="hidden transition transform origin-top-right absolute right-0"
+    role="menu"
+    class="hidden transition transform origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
     data-transition-enter-from="opacity-0 scale-95"
     data-transition-enter-to="opacity-100 scale-100"
     data-transition-leave-from="opacity-100 scale-100"
     data-transition-leave-to="opacity-0 scale-95"
   >
     <% @menu_items.each do |item| %>
-      <%= send(item[:options][:method] ? 'button_to' : 'link_to', 
-        item[:url], 
-        class:"block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 w-full #{'bg-gray-100 text-black' if item[:selected]}", 
-        method: item[:options][:method]),
-        data: {action: "dropdown#toggle"}
-        do 
-      %>
-        <span class="flex gap-4">
-          <span class=<%='text-primary' if item[:selected] %>><%= heroicon item[:options][:icon] %></span>
+      <li>
+        <%= send(item[:options][:method] ? 'button_to' : 'link_to', item[:url],
+                 class:"block px-4 py-2 text-sm text-gray-700 w-full #{'bg-gray-100' if item[:selected]}",
+                 method: item[:options][:method],
+                 data: {action: "dropdown#toggle"}) do %>
+          <span class="flex gap-4" role="menuitem">
+            <span class=<%= 'text-primary' if item[:selected] %>><%= heroicon item[:options][:icon], variant: :solid %></span>
             <%= item[:name] %>
           </span>
-      <% end %>
+        <% end %>
+      </li>
     <% end %>
-  </div>
+  </ul>
 </div>
