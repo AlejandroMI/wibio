@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BioController < ApplicationController
-  layout 'navbar'
+  layout "navbar"
 
   def edit
   end

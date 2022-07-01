@@ -9,8 +9,7 @@ class NavbarComponent < ViewComponent::Base
   end
 
   private
-
-  def primary_navigation
-    @navigation.first[:items]
-  end
+    def primary_navigation
+      @navigation.first[:items]
+    end
 end

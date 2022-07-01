@@ -5,5 +5,4 @@ class FlashComponent < ViewComponent::Base
     @type = type
     @message = message
   end
-
 end

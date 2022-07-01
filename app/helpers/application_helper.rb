@@ -1,5 +1,6 @@
-module ApplicationHelper
+# frozen_string_literal: true
 
+module ApplicationHelper
   # These methods allow to render devise views from any controller that inherits from ApplicationController
   #
   def resource_name

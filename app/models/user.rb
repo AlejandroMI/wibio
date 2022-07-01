@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_one :bio
   has_one_attached :avatar
@@ -12,8 +14,8 @@ class User < ApplicationRecord
   validates_length_of :full_name, maximum: 70
   validates_length_of :about, maximum: 140
   validates_uniqueness_of :nickname, case_sensitive: false
-  validates_format_of :nickname, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-  validates :avatar, size: { less_than_or_equal_to: 5.megabytes, message: "file too large. Max size is 5 MB."}, content_type: ['image/jpeg', 'image/gif', 'image/png']
+  validates_format_of :nickname, with: /^[a-zA-Z0-9_.]*$/, multiline: true
+  validates :avatar, size: { less_than_or_equal_to: 5.megabytes, message: "file too large. Max size is 5 MB." }, content_type: ["image/jpeg", "image/gif", "image/png"]
 
   attr_writer :login
 
@@ -26,7 +28,7 @@ class User < ApplicationRecord
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
-      where(conditions.to_h).where(["lower(nickname) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions.to_h).where(["lower(nickname) = :value OR lower(email) = :value", { value: login.downcase }]).first
     elsif conditions.has_key?(:nickname) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
@@ -37,5 +39,4 @@ class User < ApplicationRecord
   def default_avatar_number
     (1..15).to_a.rotate(id).last
   end
-
 end

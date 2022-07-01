@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 include HeroiconHelper
 
 class Forms::FileAvatarComponent < ViewComponent::Base

@@ -10,13 +10,11 @@ class AvatarComponent < ViewComponent::Base
   end
 
   private
+    def size
+      @size * 4
+    end
 
-  def size
-    @size * 4
-  end
-
-  def resize_value
-    @resize_value ||= @size * 10
-  end
-
+    def resize_value
+      @resize_value ||= @size * 10
+    end
 end
