@@ -1,106 +1,86 @@
-<nav class="bg-white sticky top-0 z-50 border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <%= link_to root_path do %>
-              <%= image_tag "logos/wibio-icon.svg", class: "h-8 w-8", alt: "Wibio logo"  %>
+<nav class="bg-white sticky top-0 z-50 border-b border-gray-200" data-controller="navigation">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <div class="flex-shrink-0 hidden md:block">
+          <%= link_to root_path do %>
+            <%= image_tag "logos/wibio.svg", class: "h-6", alt: "Wibio logo" %>
+          <% end %>
+        </div>
+        <div class="flex-shrink-0 md:hidden">
+          <%= link_to root_path do %>
+            <%= image_tag "logos/wibio-icon.svg", class: "h-6", alt: "Wibio logo" %>
+          <% end %>
+        </div>
+      </div>
+      <!-- Menu and links -->
+      <div class="flex items-center">
+        <div class="hidden md:flex items-center">
+          <a href="https://google.com" target="_blank" class="flex btn btn-primary btn-sm items-center gap-x-1 px-2">
+            <%= heroicon 'external-link', variant: :solid %>
+            <span> Your wibio </span>
+          </a>
+          <!-- Profile dropdown -->
+          <div class="ml-5 relative">
+            <%= render DropdownComponent.new(menu_items: primary_navigation) do %>
+                <span class="hover:text-primary hover:bg-gray-200 transition p-0.5 max-w-xs bg-gray-100 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary">
+                  <%= render AvatarComponent.new(user: @user, size: 8) %>
+                  <span class="p-1"><%= heroicon 'chevron-down', variant: :solid %></span>
+                </span>
             <% end %>
           </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              <a href="#" class="bg-gray-100 text-black px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Bio</a>
-
-              <a href="#" class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Links</a>
-
-              <a href="#" class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Preview</a>
-            </div>
-          </div>
         </div>
-        <div class="hidden md:block">
-          <div class="ml-4 flex items-center md:ml-6">
-            <!-- Profile dropdown -->
-            <div class="ml-3 relative">
-              <div>
-                <button type="button" class="max-w-xs bg-gray-100 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-primary" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                  <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                </button>
-              </div>
 
-              <!--
-                Dropdown menu, show/hide based on menu state.
-
-                Entering: "transition ease-out duration-100"
-                  From: "transform opacity-0 scale-95"
-                  To: "transform opacity-100 scale-100"
-                Leaving: "transition ease-in duration-75"
-                  From: "transform opacity-100 scale-100"
-                  To: "transform opacity-0 scale-95"
-              -->
-              <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                <!-- Active: "bg-gray-100", Not Active: "" -->
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="-mr-2 flex md:hidden">
           <!-- Mobile menu button -->
-          <button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!--
-              Heroicon name: outline/menu
-
-              Menu open: "hidden", Menu closed: "block"
-            -->
-            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <!--
-              Heroicon name: outline/x
-
-              Menu open: "block", Menu closed: "hidden"
-            -->
-            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+          <button type="button" data-action="click->navigation#open keydown->navigation#open" data-navigation-target="open" class="bg-white inline-flex items-center justify-center rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open menu</span>
+            <span class="p-2">
+              <%= heroicon 'menu' %>
+            </span>
+          </button>
+          <button type="button" data-action="click->navigation#close keydown->navigation#close" data-navigation-target="close" class="hidden bg-white inline-flex items-center justify-center rounded-md text-gray-400 hover:text-grey-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Close menu</span>
+            <span class="p-2">
+              <%= heroicon 'x' %>
+            </span>
           </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="md:hidden hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-gray-100 text-black block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Bio</a>
-
-        <a href="#" class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Links</a>
-
-        <a href="#" class="text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Preview</a>
-      </div>
-      <div class="pt-4 pb-3 border-t border-gray-200">
-        <div class="flex items-center px-5">
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="hidden md:hidden" id="mobile-menu" data-navigation-target="mobileMenu">
+    <div class="pt-4 pb-3">
+      <div class="flex items-center justify-between px-5 flex-wrap gap-2">
+        <div class="flex items-center">
           <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <%= render AvatarComponent.new(user: @user, size: 10) %>
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium leading-none mb-1">Tom Cook</div>
-            <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+            <div class="text-base font-medium leading-none mb-1"><%= @user.full_name %></div>
+            <div class="text-sm font-medium leading-none text-gray-400"> @<%= @user.nickname %></div>
           </div>
         </div>
-        <div class="mt-3 px-2 space-y-1">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100">Your Profile</a>
-
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100">Settings</a>
-
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100">Sign out</a>
-        </div>
+        <a href="https://google.com" target="_blank" class="flex btn btn-primary flex items-center justify-center gap-x-1">
+          <%= heroicon 'external-link', variant: :solid %>
+          <span> Your wibio </span>
+        </a>
+      </div>
+      <div class="mt-3 px-2 space-y-1">
+        <% primary_navigation.each do |item| %>
+          <%= send(item[:options][:method] ? 'button_to' : 'link_to', item[:url], class: "block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 w-full #{'bg-gray-100 text-black' if item[:selected]}", method: item[:options][:method]) do %>
+              <span class="flex gap-4">
+                <span class=<%= 'text-primary' if item[:selected] %>><%= heroicon item[:options][:icon] %></span>
+                <%= item[:name] %>
+              </span>
+          <% end %>
+        <% end %>
       </div>
     </div>
-  </nav>
+  </div>
+
+</nav>

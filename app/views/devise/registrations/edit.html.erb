@@ -1,6 +1,13 @@
 <div>
   <header class="mb-8 sm:mb-12 px-4 sm:px-0">
-    <h1 class="">Settings</h1>
+    <div class="flex items-center">
+      <%= link_to :root, class: "flex btn btn-tertiary h-6 text-gray-400 btn-sm items-center gap-x-1 px-2 -ml-2 mr-2" do %>
+        <% heroicon 'arrow-left' %>
+      <% end %>
+      <h1 class="">Settings</h1>
+    </div>
+    <div class="text-sm text-gray-700 font-medium mt-2 items-center"><%= render_navigation renderer: :breadcrumbs, join_with: ' &gt; ', static_leaf: true %></div>
+
   </header>
 
   <div class="md:grid md:grid-cols-3 md:gap-6">

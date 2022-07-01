@@ -12,9 +12,9 @@
   <%= render 'application/favicon' %>
 </head>
 
-<body class="h-full">
-<div class="min-h-full bg-gray-50">
-  <%= render NavbarComponent.new %>
+<body class="h-full bg-gray-50">
+<div class="min-h-full">
+  <%= render NavbarComponent.new(user: current_user, navigation: render_navigation(renderer: :json, as_hash: true)) %>
   <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 relative">
     <% flash.each do |type, message| %>
       <%= render FlashComponent.new(type: type, message: message) %>
