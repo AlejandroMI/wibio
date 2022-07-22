@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get "bio/edit"
-
   devise_scope :user do
     # Redirects signing out users back to home, fixing error when deleting user account
     get "users", to: "devise/sessions#new"
