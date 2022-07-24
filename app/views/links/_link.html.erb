@@ -1,0 +1,14 @@
+<div class="min-h-24 gap-4 bg-white p-4 px-6 flex items-center justify-between rounded-lg shadow overflow-hidden">
+    <div class="space-y-1 shrink basis-3/4 overflow-hidden">
+      <h2 class="truncate"><%= link.name %></h2>
+      <a href="<%= link.url %>" class="text-gray-500 hover:text-primary transition truncate" target="_blank"><%= link.domain %></a>
+    </div>
+    <div class="flex gap-2 basis-1/4">
+      <%= link_to edit_link_path(link), class: "ml-auto w-10 p-2 btn btn-secondary btn-sm" do %>
+        <%= heroicon 'pencil', variant: :solid %>
+      <% end %>
+      <%= button_to link_path(link), method: :delete, class: "btn btn-secondary w-10 p-2 btn btn-sm hover:text-secondary-dark" do %>
+        <%= heroicon 'trash', variant: :solid %>
+      <% end %>
+    </div>
+</div>
