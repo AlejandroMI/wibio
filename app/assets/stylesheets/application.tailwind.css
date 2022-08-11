@@ -31,6 +31,9 @@
         @apply shadow-sm hover:shadow-none active:shadow-none bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-200 text-gray-800 hover:text-primary;
     }
     .btn-tertiary {
+        @apply bg-gray-100 hover:bg-gray-100 active:bg-gray-200 text-gray-800 hover:text-primary;
+    }
+    .btn-ghost {
         @apply hover:text-primary text-gray-900;
     }
     .btn-danger {

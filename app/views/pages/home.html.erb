@@ -4,7 +4,7 @@
       <%= image_tag "logos/wibio.svg", class: "h-7", alt: "Wibio logo"  %>
     <% end %>
     <div class="space-x-2">
-      <%= link_to "Log In", new_user_session_path, class: "btn btn-tertiary hidden sm:inline-block" %>
+      <%= link_to "Log In", new_user_session_path, class: "btn btn-ghost hidden sm:inline-block" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary hidden sm:inline-block" %>
     </div>
   </nav>
@@ -16,7 +16,7 @@
           <span class="bg-gradient-to-r from-tertiary via-tertiary to-tertiary-light rounded-lg px-1 box-decoration-clone">Unify your presence on the internet.</span>
         </h1>
         <%= link_to "Get Started", new_user_registration_path, class: "btn btn-cta mt-4 self-center sm:mt-8 lg:self-start 2xl:text-xl" %>
-        <%= link_to "Log In", new_user_session_path, class: "btn btn-tertiary mt-4 self-center sm:mt-8 lg:self-start 2xl:text-xl sm:hidden" %>
+        <%= link_to "Log In", new_user_session_path, class: "btn btn-ghost mt-4 self-center sm:mt-8 lg:self-start 2xl:text-xl sm:hidden" %>
       </div>
       <%= image_tag "profile-phone.png", class: "mt-12 sm:max-w-xs sm:mx-auto lg:mt-0 lg:col-span-2", alt: "Phone mock up of a profile in Wibio"  %>
     </div>
