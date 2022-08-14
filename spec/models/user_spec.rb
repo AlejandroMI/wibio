@@ -60,4 +60,16 @@ RSpec.describe User, type: :model do
     user = create(:user)
     expect(user.default_avatar_number).to be_between(1, 15)
   end
+
+  it "should create an associated bio when created" do
+    user = create(:user)
+    expect(user.bio).not_to be_nil
+  end
+
+  it "should delete its associated bio when destroyed" do
+    user = create(:user)
+    bio_id = user.bio.id
+    user.destroy!
+    expect { Bio.find(bio_id) }.to raise_error
+  end
 end
