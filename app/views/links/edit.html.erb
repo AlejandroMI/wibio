@@ -9,6 +9,8 @@
     <div class="text-sm text-gray-700 font-medium mt-2 items-center"><%= render_navigation renderer: :breadcrumbs, join_with: ' &gt; ', static_leaf: true %></div>
   </header>
   <main>
-    <%= render "form", link: @link %>
+    <%= turbo_frame_tag @link do %>
+      <%= render "form", link: @link %>
+    <% end %>
   </main>
 </div>

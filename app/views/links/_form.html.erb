@@ -1,5 +1,5 @@
 <%= form_with model: @link do |f| %>
-  <div class="bg-white shadow sm:rounded-xl sm:overflow-hidden">
+  <div class="bg-white shadow rounded-xl overflow-hidden">
     <div class="px-4 py-5 space-y-6 sm:p-6">
 
     <div class="grid grid-cols-3 gap-6">
@@ -21,7 +21,8 @@
 
   </div>
 
-    <div class="bg-gray-50 px-4 py-4 text-right">
+    <div class="bg-gray-50 px-4 py-4 text-right flex justify-end gap-2 flex-wrap flex-col-reverse sm:flex-row">
+      <%= link_to 'Cancel', :links, class: "btn btn-secondary w-full sm:w-auto" %>
       <%= f.submit class:"btn btn-primary w-full sm:w-auto" %>
     </div>
 

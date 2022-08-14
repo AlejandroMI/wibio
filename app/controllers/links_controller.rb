@@ -36,7 +36,11 @@ class LinksController < ApplicationController
 
   def destroy
     @link.destroy
-    redirect_to links_path, notice: "Link was successfully destroyed."
+
+    respond_to do |format|
+      format.html { redirect_to links_path, notice: "Link was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   private
