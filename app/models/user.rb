@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_one :bio, dependent: :destroy
+  has_many :links, through: :bio
   has_one_attached :avatar
 
   after_create :assign_bio

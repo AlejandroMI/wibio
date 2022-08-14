@@ -3,18 +3,18 @@ class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
   def index
-    @links = Link.all
+    @links = current_user.links
   end
 
   def show
   end
 
   def new
-    @link = Link.new
+    @link = current_user.links.build
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = current_user.bio.links.build(link_params)
 
     if @link.save
       redirect_to links_path, notice: "Link was successfully created."
@@ -44,12 +44,11 @@ class LinksController < ApplicationController
   end
 
   private
+    def set_link
+      @link = current_user.links.find(params[:id])
+    end
 
-  def set_link
-    @link = Link.find(params[:id])
-  end
-
-  def link_params
-    params.require(:link).permit(:name, :url)
-  end
+    def link_params
+      params.require(:link).permit(:name, :url)
+    end
 end
