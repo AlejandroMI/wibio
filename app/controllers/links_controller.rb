@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LinksController < ApplicationController
   layout "navbar"
   before_action :set_link, only: [:show, :edit, :update, :destroy]
