@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :link do
-    name { "MyString" }
-    url { "MyString" }
+    name { "My Link" }
+    url { "https://mylink.com" }
+    association :bio
   end
 end

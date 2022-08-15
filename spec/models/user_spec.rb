@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
   end
 
   it "should create an associated bio when created" do
-    user = create(:user)
+    user = create(:user, bio: nil)
     expect(user.bio).not_to be_nil
   end
 
