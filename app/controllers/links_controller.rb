@@ -30,7 +30,10 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to links_path, notice: "Link was successfully updated."
+      respond_to do |format|
+        format.html { redirect_to links_path, notice: "Link was successfully updated." }
+        format.any # Avoid redirect for ajax call reordering links
+      end
     else
       render :edit, status: :unprocessable_entity
     end

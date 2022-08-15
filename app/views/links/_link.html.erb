@@ -1,4 +1,4 @@
-<%= turbo_frame_tag link do %>
+<%= turbo_frame_tag link, data: {sortable_update_url: link_path(link)} do %>
     <div class="min-h-24 bg-white flex rounded-lg shadow overflow-hidden">
         <span class="handle text-gray-400 cursor-move bg-gray-100 hover:bg-gray-200 self-stretch flex flex-col justify-center transition"> <%= heroicon 'dots-vertical', variant: :solid %> </span>
         <div class="gap-4 p-4 px-6 flex items-center justify-between grow overflow-hidden">
