@@ -19,13 +19,10 @@
                               sortable_response_kind_value: "json"
                             } do %>
           <%= render @links %>
+          <%= render "links/empty_state" %>
         <% end %>
-        <%= link_to new_link_path, class: "h-24 border border-dashed border-4 rounded-lg p-8 hover:bg-gray-100 transition" do %>
-            <div class="text-gray-700 font-medium text-center flex items-center justify-center">
-              <span class="text-primary"><%= heroicon 'plus' %></span>
-              <p>Create a new link</p>
-            </div>
-        <% end %>
+
+
       </div>
   </main>
 </div>
