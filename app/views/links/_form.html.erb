@@ -15,6 +15,7 @@
           <span class="grow"><%= f.text_field :url, class:'input rounded-none rounded-r-md' %></span>
         </div>
       </div>
+      <%= hidden_field(:link, :position, value: @link.position) %>
     </div>
 
     <%= render MessageComponent.new(resource: @link) %>
