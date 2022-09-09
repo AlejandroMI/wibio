@@ -6,13 +6,13 @@
 
       <div class="col-span-3 sm:col-span-2">
         <%= f.label :name, class: "label" %>
-        <%= f.text_field :name, autofocus: true, class: "input shadow-sm" %>
+        <%= f.text_field :name, autofocus: true, placeholder: 'A title for your link', class: "input shadow-sm" %>
        </div>
       <div class="col-span-3 sm:col-span-2">
         <%= f.label :url, class:"label" %>
         <div class="mt-1 flex rounded-lg shadow-sm">
           <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"><%= heroicon 'link' %> </span>
-          <span class="grow"><%= f.text_field :url, class:'input rounded-none rounded-r-md' %></span>
+          <span class="grow"><%= f.text_field :url, placeholder: 'https://wibio.me', class:'input rounded-none rounded-r-md' %></span>
         </div>
       </div>
       <%= hidden_field(:link, :position, value: @link.position) %>
