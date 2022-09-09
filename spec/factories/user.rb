@@ -5,6 +5,7 @@ FactoryBot.define do
     sequence(:nickname) { |n| "human#{n}" }
     full_name { "Human Earth" }
     email { "#{nickname}@test.com" }
+    about { "Hey I am a human!" }
     password { "superSecret" }
     password_confirmation { "superSecret" }
 
