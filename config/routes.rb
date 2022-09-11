@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get "bio/edit"
-
+  resources :links
   devise_scope :user do
     # Redirects signing out users back to home, fixing error when deleting user account
     get "users", to: "devise/sessions#new"
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
   post "finish_welcome", to: "users#finish_welcome"
 
   authenticated :user do
-    root "bio#edit", as: :authenticated_root
+    root "links#index", as: :authenticated_root
   end
 
   root "pages#home"

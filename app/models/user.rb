@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_one :bio
+  has_one :bio, dependent: :destroy
+  has_many :links, through: :bio
   has_one_attached :avatar
+
+  after_create :assign_bio
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -32,6 +35,11 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:nickname) || conditions.has_key?(:email)
       where(conditions.to_h).first
     end
+  end
+
+  # Create Bio associated to user only if does not have one
+  def assign_bio
+    Bio.create(user: self) if self.bio.nil?
   end
 
   # Matches id to avatar default image

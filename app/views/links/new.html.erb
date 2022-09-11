@@ -1,0 +1,16 @@
+<div class="sm:mt-2 md:mt-4 lg:mt-6 xl:mt-12 max-w-2xl mx-auto h-full">
+  <header class="flex items-center justify-between px-4 sm:px-0 mb-4">
+    <div class="flex items-center">
+      <%= link_to :links, class: "flex btn btn-ghost h-6 text-gray-400 btn-sm items-center gap-x-1 px-2 -ml-2 mr-2" do %>
+        <% heroicon 'arrow-left' %>
+      <% end %>
+      <h1>New Link</h1>
+    </div>
+    <div class="text-sm text-gray-700 font-medium mt-2 items-center"><%= render_navigation renderer: :breadcrumbs, join_with: ' &gt; ', static_leaf: true %></div>
+  </header>
+  <main>
+    <%= turbo_frame_tag @link do %>
+      <%= render "form", link: @link %>
+    <% end %>
+  </main>
+</div>

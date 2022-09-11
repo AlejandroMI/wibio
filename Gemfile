@@ -64,6 +64,12 @@ gem "image_processing", "~> 1.2"
 # Menus and navigation
 gem "simple-navigation"
 
+# Sorting lists
+gem "acts_as_list"
+
+# Validate urls
+gem "validate_url"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "database_cleaner"

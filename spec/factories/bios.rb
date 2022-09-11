@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :bio do
-    description { "MyText" }
+    association :user
   end
 end
