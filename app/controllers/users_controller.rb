@@ -2,6 +2,8 @@
 
 class UsersController < ApplicationController
   layout "navbar", except: [:welcome]
+  layout "wibio_pages", only: [:page]
+  skip_before_action :authenticate_user!, only: [:page]
 
   def update
     @user = User.find(params[:id])
@@ -12,6 +14,11 @@ class UsersController < ApplicationController
     else
       render "devise/registrations/edit", status: :unprocessable_entity
     end
+  end
+
+  # Main public user page
+  def page
+    @user = User.find_by! nickname: params[:nickname]
   end
 
   # To redirect users after sign up and fill final user details
