@@ -9,7 +9,7 @@
     </div>
     <div class="grid gap-4 p-8 pt-4 transition sm:grid-cols-2">
       <% @user.links.each do |link| %>
-        <a href="<%= link.url %>" target="_blank" class="rounded-lg bg-gray-50 p-6 pr-8 shadow-sm shadow-gray-200/50 transition duration-300 hover:bg-white hover:shadow-2xl hover:shadow-gray-200/50 sm:aspect-video only:aspect-auto only:col-span-2">
+        <a href="<%= link.url %>" class="rounded-lg bg-gray-50 p-6 pr-8 shadow-sm shadow-gray-200/50 transition duration-300 hover:bg-white hover:shadow-2xl hover:shadow-gray-200/50 sm:aspect-video only:aspect-auto only:col-span-2">
           <h3><%= link.name %></h3>
         </a>
       <% end %>
