@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   # Set devise for users, customizing through registration controller and with prefix to avoid collisions with user paths
   devise_for :users, controllers: { registrations: :registrations }, path_prefix: "d"
 
+  resources :links
+
   # This is the main page for each user and their links
   get ':nickname', to: 'users#page', as: :user
   resources :users, only: [:update]
   get "welcome", to: "users#welcome"
   post "finish_welcome", to: "users#finish_welcome"
-
-  resources :links
 
   # This should go always before the root page
   authenticated :user do
