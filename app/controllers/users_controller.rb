@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
   # To redirect users after sign up and fill final user details
   def welcome
-    redirect_to root_path unless request.referrer&.end_with?("/users/sign_up") || Rails.env.development?
     @user = current_user
   end
 
