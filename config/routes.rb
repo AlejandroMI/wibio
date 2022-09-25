@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :links
 
   # This is the main page for each user and their links
-  get ':nickname', to: 'users#page', as: :user
+  get ':nickname', to: 'users#page', as: :wibio_page
+
   resources :users, only: [:update]
   get "welcome", to: "users#welcome"
   post "finish_welcome", to: "users#finish_welcome"
