@@ -9,7 +9,7 @@ Make sure that your system has the proper prerequisites installed. You can use s
 These include:
 
 - Ruby (3.1.1) ([Tutorial macOS](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-macos) | [More info on installing Ruby](https://www.ruby-lang.org/en/documentation/installation/))
-- SQLite3
+- PostgreSQL
 - Node.js (should be greater than 8.16.0.)
 - Yarn
 - [libvips](https://formulae.brew.sh/formula/vips)
