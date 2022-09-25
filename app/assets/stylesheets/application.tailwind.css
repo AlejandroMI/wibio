@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .aspect-video {
+        aspect-ratio: 16 / 9;
+    }
+    .aspect-auto {
+        aspect-ratio: auto;
+    }
+}
+
 @layer components {
     /* Headers */
     h1 {
