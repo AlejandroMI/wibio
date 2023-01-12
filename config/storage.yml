@@ -7,13 +7,13 @@ local:
   root: <%= Rails.root.join("storage") %>
 
 # Use bin/rails credentials:edit to set the DO secrets
- digitalocean:
-   service: S3
-   endpoint: https://ams3.digitaloceanspaces.com
-   access_key_id: <%= Rails.application.credentials.dig(:digitalocean, :access_key_id) %>
-   secret_access_key: <%= Rails.application.credentials.dig(:digitalocean, :secret_access_key) %>
-   region: unused
-   bucket: wibio-space
+digitalocean:
+  service: S3
+  endpoint: https://ams3.digitaloceanspaces.com
+  access_key_id: <%= Rails.application.credentials.dig(:digitalocean, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:digitalocean, :secret_access_key) %>
+  region: unused
+  bucket: wibio-space
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
