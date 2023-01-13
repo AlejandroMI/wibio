@@ -39,7 +39,9 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
+  # Use DO spaces and minimagick for production
   config.active_storage.service = :digitalocean
+  config.active_storage.variant_processor = :mini_magick
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
