@@ -20,3 +20,7 @@ puts "💡 Feel free to signup and develop with your own user!"
 Link.create(name: "My website", url: "https://google.com", bio: user.bio)
 Link.create(name: "Some info about my species", url: "https://en.wikipedia.org/wiki/Human", bio: user.bio)
 Link.create(name: "One of my favourite songs", url: "https://open.spotify.com/track/1sTsuZTdANkiFd7T34H3nb", bio: user.bio)
+
+# For admin users
+puts "🌱 Database seeded with admin user. user: admin@example.com | password: password"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
