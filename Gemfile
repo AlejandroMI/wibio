@@ -74,7 +74,7 @@ gem "validate_url"
 # Admin panel
 gem "activeadmin"
 # Using it for activeadmin for now
-gem 'sass-rails'
+gem "sass-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

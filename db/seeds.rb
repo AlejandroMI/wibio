@@ -23,4 +23,4 @@ Link.create(name: "One of my favourite songs", url: "https://open.spotify.com/tr
 
 # For admin users
 puts "🌱 Database seeded with admin user. user: admin@example.com | password: password"
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password") if Rails.env.development?
