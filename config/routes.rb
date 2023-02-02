@@ -3,10 +3,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_scope :user do
-    # Redirects signing out users back to home, fixing error when deleting user account
-    get "users", to: "devise/sessions#new"
-  end
+
   # Set devise for users, customizing through registration controller and with prefix to avoid collisions with user paths
   devise_for :users, controllers: { registrations: :registrations }, path_prefix: "d"
 
