@@ -1,0 +1,2 @@
+class BlacklistedNickname < ApplicationRecord
+end

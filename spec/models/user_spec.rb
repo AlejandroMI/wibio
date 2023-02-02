@@ -13,6 +13,12 @@ RSpec.describe User, type: :model do
     expect(user).to be_valid
   end
 
+  it 'should not allow blacklisted nicknames' do
+    create(:blacklisted_nickname, name: 'rails')
+    user = build(:user, nickname: 'rails')
+    expect(user).not_to be_valid
+  end
+
   it "shouldnt allow a duplicate nickname, even using caps" do
     user = create(:user, nickname: "ted", email: "ted1@test.com")
     expect(user).to be_valid
