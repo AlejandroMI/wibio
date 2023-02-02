@@ -22,7 +22,7 @@
     <div class="mt-5 md:mt-0 md:col-span-2">
       <div class="bg-white shadow sm:rounded-xl sm:overflow-hidden">
 
-        <%= form_with model: @user do |f| %>
+        <%= form_with model: resource, data: { turbo: false } do |f| %>
 
           <div class="px-4 py-5 space-y-6 sm:p-6">
 
@@ -52,8 +52,6 @@
               </div>
 
             </div>
-
-            <%= render MessageComponent.new(resource: @user) %>
 
           </div>
 
@@ -88,7 +86,7 @@
       <div class="mt-5 md:mt-0 md:col-span-2">
         <div class="bg-white shadow sm:rounded-xl sm:overflow-hidden">
 
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
 
             <div class="px-4 py-5 space-y-6 sm:p-6">
               <div>

@@ -13,12 +13,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Validations
-  validates_presence_of :nickname, :full_name
-  validates_length_of :full_name, maximum: 70
+  validates :nickname,
+            exclusion: { in: ->(user) { BlacklistedNickname.pluck(:name) } },
+            presence: true,
+            length: { minimum: 2, maximum: 34 },
+            uniqueness: { case_sensitive: false },
+            format: { with: /^[a-zA-Z0-9_.]*$/, multiline: true }
+  validates :full_name, length: { maximum: 70 }, presence: true
   validates_length_of :about, maximum: 140
-  validates_length_of :nickname, minimum: 2, maximum: 34
-  validates_uniqueness_of :nickname, case_sensitive: false
-  validates_format_of :nickname, with: /^[a-zA-Z0-9_.]*$/, multiline: true
   validates :avatar, size: { less_than_or_equal_to: 5.megabytes, message: "file too large. Max size is 5 MB." }, content_type: ["image/jpeg", "image/gif", "image/png"]
 
   attr_writer :login

@@ -10,9 +10,11 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       flash[:notice] = "Your profile information was updated."
-      redirect_to @user
+      redirect_to edit_user_registration_path
     else
-      render "devise/registrations/edit", status: :unprocessable_entity
+      # Using redirect here instead of render since we want the devise controller to handle this page
+      flash[:alert] = @user.errors.full_messages.first
+      redirect_to edit_user_registration_path
     end
   end
 

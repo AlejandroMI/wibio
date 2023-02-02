@@ -8,6 +8,7 @@ export default class extends Controller {
             setTimeout(() => {
                 this.element.classList.add('transform','ease-in-out', 'duration-300', 'transition', 'opacity-0', 'scale-y-0', 'origin-top');
                 this.element.classList.remove('hidden');
+                this.element.scrollIntoView()
 
                 // Trigger transition
                 setTimeout(() => {
