@@ -4,7 +4,7 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
 # Add a blacklisted nickname
-BlacklistedNickname.create(name: 'rails')
+BlacklistedNickname.create(name: "rails")
 
 # A human
 user = User.create(

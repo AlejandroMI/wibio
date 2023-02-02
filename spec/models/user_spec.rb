@@ -13,9 +13,9 @@ RSpec.describe User, type: :model do
     expect(user).to be_valid
   end
 
-  it 'should not allow blacklisted nicknames' do
-    create(:blacklisted_nickname, name: 'rails')
-    user = build(:user, nickname: 'rails')
+  it "should not allow blacklisted nicknames" do
+    create(:blacklisted_nickname, name: "rails")
+    user = build(:user, nickname: "rails")
     expect(user).not_to be_valid
   end
 
@@ -34,13 +34,13 @@ RSpec.describe User, type: :model do
   end
 
   it "should not allow nicknames of less than 2 characters" do
-    user = build(:user, nickname: 'x')
+    user = build(:user, nickname: "x")
     expect(user).to_not be_valid
   end
 
   it "should not allow nicknames of longer than 34 characters" do
-    valid_user = build(:user, nickname: 'supercalifragilisticexpialidocious')
-    not_valid_user = build(:user, nickname: 'supercalifragilisticexpialidocious1')
+    valid_user = build(:user, nickname: "supercalifragilisticexpialidocious")
+    not_valid_user = build(:user, nickname: "supercalifragilisticexpialidocious1")
     expect(valid_user).to be_valid
     expect(not_valid_user).to_not be_valid
   end
