@@ -11,7 +11,7 @@
       </p>
     </div>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "mt-8 space-y-6") do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "mt-8 space-y-6", data: { turbo: false }) do |f| %>
       <div class="rounded-lg shadow-sm -space-y-px">
         <div class="field">
           <%= f.label :login, class: "sr-only" %>
