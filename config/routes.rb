@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # Set devise for users, customizing through registration controller and with prefix to avoid collisions with user paths
-  devise_for :users, controllers: { registrations: :registrations }, path_prefix: "d"
+  devise_for :users, controllers: { registrations: :registrations, confirmations: :confirmations }, path_prefix: "d"
 
   # This is the main page for each user and their links
   get ":nickname", to: "users#page", as: :wibio_page
