@@ -86,6 +86,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-rails_config", require: false
+  gem "capybara"
 end
 
 group :development do
