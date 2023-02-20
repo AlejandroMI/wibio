@@ -1,8 +1,14 @@
-# spec/features/user_signup_spec.rb
-
 require 'rails_helper'
 
 RSpec.feature 'User Signup', type: :feature do
+  scenario 'user can find sign up link on the home page and navigate to the page' do
+    visit root_path
+    click_link 'Sign Up'
+    expect(current_path).to eq new_user_registration_path
+    expect(page).to have_content('Sign up')
+    expect(page).to have_content('Or log in into your account.')
+  end
+
   scenario 'user signs up successfully and is told to open confirmation email' do
     sign_up_user
     expect(page).to have_content('A message with a confirmation link has been sent to your email address.')
