@@ -87,6 +87,7 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rubocop-rails_config", require: false
   gem "capybara"
+  gem 'simplecov', require: false
 end
 
 group :development do
