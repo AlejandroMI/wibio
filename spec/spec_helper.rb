@@ -1,8 +1,9 @@
 # frozen_string_literal: true
-require 'simplecov'
-SimpleCov.start 'rails'
-SimpleCov.add_filter 'vendor'
-SimpleCov.add_filter 'app/admin'
+
+require "simplecov"
+SimpleCov.start "rails"
+SimpleCov.add_filter "vendor"
+SimpleCov.add_filter "app/admin"
 
 
 RSpec.configure do |config|
