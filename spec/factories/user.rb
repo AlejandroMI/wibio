@@ -12,5 +12,8 @@ FactoryBot.define do
     trait :with_avatar do
       avatar { Rack::Test::UploadedFile.new("spec/fixtures/monalisa.jpeg", "image/png") }
     end
+    trait :confirmed do
+      confirmed_at { Time.now }
+    end
   end
 end
