@@ -30,7 +30,7 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 
 # Icons: [https://heroicons.com/]
-gem "heroicon"
+gem "heroicon", "0.4.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
