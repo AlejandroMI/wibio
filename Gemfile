@@ -30,7 +30,7 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 
 # Icons: [https://heroicons.com/]
-gem "heroicon"
+gem "heroicon", "0.4.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -86,12 +86,16 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop", require: false
   gem "rubocop-rails_config", require: false
+  gem "capybara"
+  gem "simplecov", require: false
 end
 
 group :development do
   gem "rails_real_favicon"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  gem "mailcatcher"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
